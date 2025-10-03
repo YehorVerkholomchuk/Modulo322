@@ -1,41 +1,31 @@
 Sviluppo MyLibrary
 
 Profilo
-
 Impostazioni
-
 Home
-
 Libri
-
 Film
-
 Serie TV
-
 Fumetti
-
 Pinnati
-
 Statistiche
-
 Recensioni
-
 Ricerca
-
 Filtri
-
 Suggerimenti
-
 Collegamenti
-
 Navigazione
-
 Notifiche
-
 Import/Export
-
 Accessibilità
-
 Supporto
-
 Onboarding
+Ordine opera
+Contatti
+Novità
+Grafico di traccia
+Pianificazione
+Date nuovi opera
+Descrizione opera
+Autore opera
+

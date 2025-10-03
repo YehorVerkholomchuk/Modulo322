@@ -1,21 +1,32 @@
 Tenere traccia di libri e attività televisive
+Traccia attività
 
 Segnare film e fumetti già visti
+Traccia visti
 
 Aggiungere libri letti e film
+Aggiunta
 
 Visualizzare grafici con tempo dedicato a film/libri per genere
 
 Aggiungere recensioni e valutazioni personali
+recensioni
 
 Ricevere consigli basati su recensioni e preferenze
+consigli
 
 Visualizzare suggerimenti per generi e contenuti correlati
+suggeriti
 
 Collegare opere tra loro (libri–film–fumetti)
+collegamento opere
 
 Ricercare e filtrare contenuti
+ricerca
+filtra
 
 Inserire nuovi contenuti tramite barra dedicata
+aggiunta
 
 Navigare tra sezioni: home, libri, film, fumetti (…)
+navigazione
