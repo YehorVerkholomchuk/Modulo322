@@ -1,1 +1,1 @@
-E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\MyLibrary.csproj;x64
+E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\MyLibrary.csproj;x64

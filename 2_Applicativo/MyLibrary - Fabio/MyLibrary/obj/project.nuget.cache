@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "csREfp2rq54=",
+  "dgSpecHash": "PPDjPpCVKTU=",
   "success": true,
-  "projectFilePath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+  "projectFilePath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lfd405\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\lfd405\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
