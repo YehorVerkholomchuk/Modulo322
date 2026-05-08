@@ -152,7 +152,6 @@ androidx.exifinterface.exifinterface.aar
 androidx.browser.browser.aar
 gifdecoder.aar
 glide.aar
-<<<<<<< Updated upstream
 GoogleGson.aar
 Jsr305Binding.aar
 Microsoft.Maui.Controls.Compatibility.aar
@@ -162,5 +161,3 @@ Microsoft.Maui.aar
 Microsoft.Maui.Essentials.aar
 Xamarin.Google.Crypto.Tink.Android.aar
 Xamarin.Google.ErrorProne.Annotations.aar
-=======
->>>>>>> Stashed changes

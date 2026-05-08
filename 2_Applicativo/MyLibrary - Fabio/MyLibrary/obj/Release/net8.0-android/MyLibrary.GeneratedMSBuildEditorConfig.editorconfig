@@ -30,6 +30,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[E:/samt/GitHub/Modulo322/2_Applicativo/MyLibrary - Fabio/MyLibrary/FilmPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.FilmPage.xaml
+build_metadata.AdditionalFiles.TargetPath = FilmPage.xaml
+build_metadata.AdditionalFiles.RelativePath = FilmPage.xaml
+
 [E:/samt/GitHub/Modulo322/2_Applicativo/MyLibrary - Fabio/MyLibrary/LogIn.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.LogIn.xaml

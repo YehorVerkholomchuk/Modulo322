@@ -8,8 +8,9 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        async private void OnCounterClicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new FilmPage());
         }
     }
 

@@ -24,11 +24,7 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=false
 androidpackagenamingpolicy=lowercasecrc64
-<<<<<<< Updated upstream
 _nugetassetsfilehash=3aebf4b9531d0f1a85f62abd321ceacab1dee04588654b41c3715921e66a9234
-=======
-_nugetassetsfilehash=f342495e86cf227f9c70898ee9b1fe659e59ebaefd56200b0ec8d05edae20d1b
->>>>>>> Stashed changes
 typemapkind=mvid
 androidmanifestplaceholders=
 projectfullpath=e:\samt\github\modulo322\2_applicativo\mylibrary - fabio\mylibrary\mylibrary.csproj
