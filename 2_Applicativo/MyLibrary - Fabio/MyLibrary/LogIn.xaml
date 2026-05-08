@@ -64,7 +64,7 @@
                             BackgroundColor="White"
                             Margin="30, 5, 20, 0"
                             Placeholder="Fedez.Nero@gmail.com"/>
-                        </VerticalStackLayout>
+                        </VerticalStackLayout>  
 
                     </Frame>
 

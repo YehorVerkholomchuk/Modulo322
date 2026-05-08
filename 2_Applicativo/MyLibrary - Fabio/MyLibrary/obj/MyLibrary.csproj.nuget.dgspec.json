@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {}
+    "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj": {}
   },
   "projects": {
-    "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {
+    "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+        "projectUniqueName": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
         "projectName": "MyLibrary",
-        "projectPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
-        "packagesPath": "C:\\Users\\lfd405\\.nuget\\packages\\",
-        "outputPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\obj\\",
+        "projectPath": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
+        "packagesPath": "C:\\Users\\cde583\\.nuget\\packages\\",
+        "outputPath": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lfd405\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cde583\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -222,6 +222,10 @@
               "version": "[18.0.8324, 18.0.8324]"
             },
             {
+              "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-arm64.net8.0_18.0",
+              "version": "[18.0.8324, 18.0.8324]"
+            },
+            {
               "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64.net8.0_18.0",
               "version": "[18.0.8324, 18.0.8324]"
             }
@@ -265,8 +269,24 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.16, 8.0.16]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.19041.57, 10.0.19041.57]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.16, 8.0.16]"
             }
           ],
           "frameworkReferences": {
@@ -294,6 +314,9 @@
           "#import": []
         },
         "iossimulator-x64": {
+          "#import": []
+        },
+        "maccatalyst-arm64": {
           "#import": []
         },
         "maccatalyst-x64": {
