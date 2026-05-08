@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyLibrary.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="40, 0"
+            Spacing="25">
+            <Frame 
+            BackgroundColor="#969696"
+            CornerRadius="10"
+            Padding="10"
+            HasShadow="True"
+            HeightRequest="500">
+                <VerticalStackLayout>
+                    <Label
+                        Text="Sign In"
+                        FontFamily=""
+                        FontSize="50"
+                        FontAttributes="Bold"
+                        Margin="40, 0, 0, 40"/>
+
+                    <Label
+                        Text="Create your account"
+                        FontSize="25"
+                        TextColor="#757575"
+                        Margin="40, -40, 0, 0"/>
+                    <!--Promt: su maui come faccio dei box? -->
+                    <Frame 
+                    BackgroundColor="#d9d9d9"
+                    CornerRadius="10"
+                    BorderColor="Black" 
+                    Padding="10"
+                    Margin="40, 45, 0, 50"
+                    HasShadow="True"
+                    WidthRequest="250"
+                    HeightRequest="300"
+                    HorizontalOptions="Start">
+
+                        <VerticalStackLayout>
+                            <Label
+                            Text="Create your account"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            Margin="15, 0, 0, 0"/>
+                            
+                            <Label
+                            Text="Username"
+                            FontSize="15"
+                            Margin="30, 20, 0, 0"/>
+                            <Entry
+                            x:Name="entUsername"
+                            BackgroundColor="White"
+                            Margin="30, 5, 20, 0"
+                            Placeholder="DenisDosio93"/>
+
+                            <Label
+                            Text="Mail"
+                            FontSize="15"
+                            Margin="30, 20, 0, 0"/>
+                            <Entry
+                            x:Name="entMail"
+                            BackgroundColor="White"
+                            Margin="30, 5, 20, 0"
+                            Placeholder="Fedez.Nero@gmail.com"/>
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </VerticalStackLayout>
+
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
