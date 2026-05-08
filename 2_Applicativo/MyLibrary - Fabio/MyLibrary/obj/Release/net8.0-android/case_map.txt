@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 animation\enterfromleft;animation\enterfromleft
 animation\enterfromright;animation\enterfromright
 animation\exittoleft;animation\exittoleft
@@ -21,3 +22,6 @@ values\colors;values\colors
 values\strings;values\strings
 values\styles;android\Resources\values\styles
 xml\microsoft_maui_essentials_fileprovider_file_paths;resources\xml\microsoft_maui_essentials_fileprovider_file_paths
+=======
+values\colors;values\colors
+>>>>>>> Stashed changes
