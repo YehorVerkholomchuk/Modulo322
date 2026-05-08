@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\mylibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\mylibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
@@ -22,11 +26,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\MauiProgram.cs",
+              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MauiProgram.cs",
+              "RelativeToolTip": "MyLibrary\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T13:24:56.532Z"
             },
             {
               "$type": "Document",
@@ -36,9 +52,10 @@
               "RelativeDocumentMoniker": "MyLibrary\\LogIn.xaml.cs",
               "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml.cs",
               "RelativeToolTip": "MyLibrary\\LogIn.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T12:00:51.02Z"
+              "WhenOpened": "2026-04-24T12:00:51.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,14 +65,14 @@
               "RelativeDocumentMoniker": "MyLibrary\\LogIn.xaml",
               "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml",
               "RelativeToolTip": "MyLibrary\\LogIn.xaml",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAvwHsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-04-24T11:59:05.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MyLibrary.csproj",
               "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
               "RelativeDocumentMoniker": "MyLibrary\\MyLibrary.csproj",

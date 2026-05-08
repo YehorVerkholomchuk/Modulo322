@@ -30,7 +30,7 @@
     <AppXManifest Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-05-08T11:40:12.677</Modified>
+      <Modified>2026-05-08T13:48:53.063</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -40,15 +40,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MyLibrary.runtimeconfig.json">
       <PackagePath>MyLibrary.runtimeconfig.json</PackagePath>
-      <Modified>2026-05-08T11:40:12.411</Modified>
+      <Modified>2026-05-08T12:28:51.688</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MyLibrary.dll">
       <PackagePath>MyLibrary.dll</PackagePath>
-      <Modified>2026-05-08T11:40:11.614</Modified>
+      <Modified>2026-05-08T13:48:52.735</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MyLibrary.exe</PackagePath>
-      <Modified>2026-05-08T11:40:11.677</Modified>
+      <Modified>2026-05-08T13:48:52.754</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -288,7 +288,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary - Fabio\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MyLibrary.deps.json">
       <PackagePath>MyLibrary.deps.json</PackagePath>
-      <Modified>2026-05-08T11:40:12.380</Modified>
+      <Modified>2026-05-08T12:28:51.657</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lfd405\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
