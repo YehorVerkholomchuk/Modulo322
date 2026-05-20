@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\",
+  "WorkspaceRootPath": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\moduli\\laboratoriomaui\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\mylibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\moduli\\laboratoriomaui\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\mylibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\mylibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\moduli\\laboratoriomaui\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,40 +30,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LogIn.xaml.cs",
-              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\LogIn.xaml.cs",
+              "DocumentMoniker": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml.cs",
               "RelativeDocumentMoniker": "MyLibrary\\LogIn.xaml.cs",
-              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\LogIn.xaml.cs",
+              "ToolTip": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml.cs",
               "RelativeToolTip": "MyLibrary\\LogIn.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T12:00:51.02Z"
+              "WhenOpened": "2026-04-24T12:00:51.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LogIn.xaml",
-              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\LogIn.xaml",
+              "DocumentMoniker": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml",
               "RelativeDocumentMoniker": "MyLibrary\\LogIn.xaml",
-              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\LogIn.xaml",
+              "ToolTip": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml",
               "RelativeToolTip": "MyLibrary\\LogIn.xaml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAABwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-04-24T11:59:05.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MyLibrary.csproj",
-              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+              "DocumentMoniker": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
               "RelativeDocumentMoniker": "MyLibrary\\MyLibrary.csproj",
-              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+              "ToolTip": "E:\\MODULI\\LaboratorioMAUI\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\MyLibrary.csproj",
               "RelativeToolTip": "MyLibrary\\MyLibrary.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-24T11:52:45.936Z"
+              "WhenOpened": "2026-04-24T11:52:45.936Z",
+              "EditorCaption": ""
             }
           ]
         }
