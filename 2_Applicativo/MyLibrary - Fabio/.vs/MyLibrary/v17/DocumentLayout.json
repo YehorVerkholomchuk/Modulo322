@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\samt\\github\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\filmpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\filmpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\samt\\github\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|e:\\samt\\github\\modulo322\\2_applicativo\\mylibrary - fabio\\mylibrary\\filmpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3FD66D06-D4C9-4441-9AD4-30BD4D1BC517}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\filmpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,24 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FilmPage.xaml",
               "DocumentMoniker": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\FilmPage.xaml",
               "RelativeDocumentMoniker": "MyLibrary\\FilmPage.xaml",
               "ToolTip": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\FilmPage.xaml",
               "RelativeToolTip": "MyLibrary\\FilmPage.xaml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-08T14:12:54.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LogIn.xaml.cs",
               "DocumentMoniker": "E:\\samt\\GitHub\\Modulo322\\2_Applicativo\\MyLibrary - Fabio\\MyLibrary\\LogIn.xaml.cs",
               "RelativeDocumentMoniker": "MyLibrary\\LogIn.xaml.cs",
