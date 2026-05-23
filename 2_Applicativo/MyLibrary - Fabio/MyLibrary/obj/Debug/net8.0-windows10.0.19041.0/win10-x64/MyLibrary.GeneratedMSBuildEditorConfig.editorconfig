@@ -51,3 +51,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary - Fabio/MyLibrary/SignIn2.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.SignIn2.xaml
+build_metadata.AdditionalFiles.TargetPath = SignIn2.xaml
+build_metadata.AdditionalFiles.RelativePath = SignIn2.xaml

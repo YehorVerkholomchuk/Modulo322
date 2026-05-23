@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyLibrary.MainPage">
+             x:Class="MyLibrary.SignIn2"
+             Title="Sign in 2">
 
     <ScrollView>
         <Grid Padding="30"
@@ -31,7 +32,8 @@
                                    FontSize="52"
                                    FontAttributes="Bold"
                                    TextColor="#EDE8E0"/>
-                            <Label Text="Create your account"
+                            <Label x:Name="lblHelloUsername"
+                                   Text="Hello Username"
                                    FontSize="22"
                                    TextColor="#a09890"/>
                         </VerticalStackLayout>
@@ -39,7 +41,6 @@
                         <!-- Card Form -->
                         <Frame BackgroundColor="#a0d9ef"
                                CornerRadius="12"
-
                                Padding="24"
                                HasShadow="True"
                                MaximumWidthRequest="320"
@@ -52,38 +53,38 @@
                                        FontAttributes="Bold"
                                        TextColor="#1A1A1A"/>
 
-                                <!-- Campo Username -->
+                                <!-- Campo Password -->
                                 <VerticalStackLayout Spacing="4">
-                                    <Label Text="Username"
+                                    <Label Text="Password"
                                            FontSize="14"
                                            TextColor="#333333"/>
-
-                                    <Entry x:Name="entUsername"
-                                               Placeholder="PulcinoPio"
+                                    <Entry x:Name="entPassword"
+                                               Placeholder="••••••••"
                                                PlaceholderColor="#000000"
                                                BackgroundColor="#cfecf7"
                                                TextColor="#EDE8E0"
+                                               IsPassword="True"
                                                FontSize="14"
                                                Margin="8,4"/>
                                 </VerticalStackLayout>
 
-                                <!-- Campo Mail -->
+                                <!-- Campo Confirm Password -->
                                 <VerticalStackLayout Spacing="4"
                                                       Margin="0,8,0,0">
-                                    <Label Text="Mail"
+                                    <Label Text="Confirm Password"
                                            FontSize="14"
                                            TextColor="#333333"/>
-                                    <Entry x:Name="entMail"
-                                               Placeholder="mail@gmail.com"
+                                    <Entry x:Name="entConfirmPassword"
+                                               Placeholder="••••••••"
                                                PlaceholderColor="#000000"
                                                BackgroundColor="#cfecf7"
                                                TextColor="#EDE8E0"
-                                               Keyboard="Email"
+                                               IsPassword="True"
                                                FontSize="14"
                                                Margin="8,4"/>
                                 </VerticalStackLayout>
 
-                                <!-- Bottone Continue Clicked="OnContinueClicked"-->
+                                <!-- Bottone Continue -->
                                 <Button Text="Continue"
                                         x:Name="continueBtn"
                                         TextColor="#EDE8E0"
@@ -95,14 +96,29 @@
                                         HeightRequest="44"
                                         WidthRequest="180"
                                         HorizontalOptions="Center"
-                                        Margin="0,20,0,0"
-                                        Clicked="OnNextSignIn"
-                                        />
+                                        Margin="0,20,0,0"/>
+                                        <!--Clicked="OnContinueClicked"-->
+                                        
+
+                                <!-- Bottone Back -->
+                                <Button Text="Back"
+                                        x:Name="backBtn"
+                                        TextColor="#EDE8E0"
+                                        BackgroundColor="#1c96c5"
+                                        BorderWidth="1.5"
+                                        FontAttributes="Bold"
+                                        FontSize="15"
+                                        CornerRadius="22"
+                                        HeightRequest="44"
+                                        WidthRequest="180"
+                                        HorizontalOptions="Center"
+                                        Margin="0,4,0,0"
+                                        Clicked="OnBackClicked"/>
 
                             </VerticalStackLayout>
                         </Frame>
 
-                        <!-- Bottone Log in Clicked="OnLoginClicked"-->
+                        <!-- Bottone Log in -->
                         <Button Text="Log in"
                                 x:Name="loginBtn"
                                 BackgroundColor="#1c96c5"
@@ -122,7 +138,6 @@
                             Grid.Column="1"
                            BackgroundColor="#a0d9ef"
                            CornerRadius="12"
-
                            Padding="0"
                            HasShadow="True"
                            HeightRequest="520"
