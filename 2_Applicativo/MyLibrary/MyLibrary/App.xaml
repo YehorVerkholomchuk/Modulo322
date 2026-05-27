@@ -1,0 +1,44 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyLibrary"
+             x:Class="MyLibrary.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <x:String x:Key="GlobalFontFamily">OpenSansRegular</x:String>
+            <x:Double x:Key="GlobalFontSize">14</x:Double>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+                <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+                <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#888888, Dark=#666666}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6F9, Dark=#262626}" />
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+                <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#888888, Dark=#666666}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6F9, Dark=#262626}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

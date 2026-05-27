@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\samt\\LABO 2\\MyLibrary\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|d:\\samt\\labo 2\\mylibrary\\mylibrary\\statspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\statspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StatsPage.xaml.cs",
+              "DocumentMoniker": "D:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\StatsPage.xaml.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\StatsPage.xaml.cs",
+              "ToolTip": "D:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\StatsPage.xaml.cs",
+              "RelativeToolTip": "MyLibrary\\StatsPage.xaml.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwFkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T14:07:41.544Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
