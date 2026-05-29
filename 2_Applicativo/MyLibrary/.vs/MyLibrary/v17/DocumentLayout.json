@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\style\\settingsstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\style\\settingsstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\settingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\settingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -27,19 +39,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SettingsStyle.xaml",
+              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\SettingsStyle.xaml",
+              "RelativeDocumentMoniker": "MyLibrary\\Style\\SettingsStyle.xaml",
+              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\SettingsStyle.xaml",
+              "RelativeToolTip": "MyLibrary\\Style\\SettingsStyle.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-29T13:27:58.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\App.xaml",
+              "RelativeDocumentMoniker": "MyLibrary\\Style\\App.xaml",
+              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\App.xaml",
+              "RelativeToolTip": "MyLibrary\\Style\\App.xaml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACUAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-29T12:41:15.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SettingsPage.xaml",
+              "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\SettingsPage.xaml",
+              "RelativeDocumentMoniker": "MyLibrary\\SettingsPage.xaml",
+              "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\SettingsPage.xaml",
+              "RelativeToolTip": "MyLibrary\\SettingsPage.xaml",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAgwF4AAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-29T12:41:07.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProfilePage.xaml",
               "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\ProfilePage.xaml",
               "RelativeDocumentMoniker": "MyLibrary\\ProfilePage.xaml",
               "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\ProfilePage.xaml",
               "RelativeToolTip": "MyLibrary\\ProfilePage.xaml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-27T11:28:02.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ProfilePage.xaml.cs",
               "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\ProfilePage.xaml.cs",
               "RelativeDocumentMoniker": "MyLibrary\\ProfilePage.xaml.cs",

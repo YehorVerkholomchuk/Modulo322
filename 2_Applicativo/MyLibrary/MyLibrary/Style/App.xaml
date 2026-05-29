@@ -7,8 +7,9 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="../Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="../Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="/Style/SettingsStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <x:String x:Key="GlobalFontFamily">OpenSansRegular</x:String>
@@ -37,6 +38,24 @@
                 <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
                 <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=#888888, Dark=#666666}" />
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#F4F6F9, Dark=#262626}" />
+            </Style>
+
+            <Style x:Key="LeftSelectorLbl" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#6B6B6B, Dark=#6B6B6B}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="LeftSelectorLblActive" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=White}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="LeftSelectorItem" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 8" />
+                <Setter Property="Padding" Value="14,12" />
             </Style>
 
         </ResourceDictionary>

@@ -34,12 +34,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AddMediaPage.xam
 build_metadata.AdditionalFiles.TargetPath = AddMediaPage.xaml
 build_metadata.AdditionalFiles.RelativePath = AddMediaPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/App.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.App.xaml
-build_metadata.AdditionalFiles.TargetPath = App.xaml
-build_metadata.AdditionalFiles.RelativePath = App.xaml
-
 [E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AppShell.xaml
@@ -87,3 +81,15 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.StatsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StatsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = StatsPage.xaml
+
+[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Style/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Style.App.xaml
+build_metadata.AdditionalFiles.TargetPath = Style\App.xaml
+build_metadata.AdditionalFiles.RelativePath = Style\App.xaml
+
+[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Style/SettingsStyle.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Style.SettingsStyle.xaml
+build_metadata.AdditionalFiles.TargetPath = Style\SettingsStyle.xaml
+build_metadata.AdditionalFiles.RelativePath = Style\SettingsStyle.xaml
