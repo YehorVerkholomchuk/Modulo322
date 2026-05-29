@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {}
+    "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {}
   },
   "projects": {
-    "E:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {
+    "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+        "projectUniqueName": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
         "projectName": "MyLibrary",
-        "projectPath": "E:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
-        "packagesPath": "C:\\Users\\cde583\\.nuget\\packages\\",
-        "outputPath": "E:\\samt\\LABO 2\\MyLibrary\\MyLibrary\\obj\\",
+        "projectPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\MyLibrary.csproj",
+        "packagesPath": "C:\\Users\\lfd405\\.nuget\\packages\\",
+        "outputPath": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\cde583\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lfd405\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
