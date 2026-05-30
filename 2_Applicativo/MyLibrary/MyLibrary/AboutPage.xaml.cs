@@ -10,29 +10,19 @@ namespace MyLibrary
             InitializeComponent();
         }
 
-        private async void OnNavigateToDashboard(object sender, EventArgs e)
-        {
+        private async void OnNavigateToDashboard(object sender, EventArgs e) =>
             await Navigation.PushAsync(new MainPage());
-        }
 
-        private async void OnNavigateToAddMedia(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAddMedia(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AddMediaPage());
-        }
 
-        private async void OnNavigateToStats(object sender, EventArgs e)
-        {
+        private async void OnNavigateToStats(object sender, EventArgs e) =>
             await Navigation.PushAsync(new StatsPage());
-        }
 
-        private async void OnNavigateToProfile(object sender, EventArgs e)
-        {
+        private async void OnNavigateToProfile(object sender, EventArgs e) =>
             await Navigation.PushAsync(new ProfilePage());
-        }
 
-        private async void OnNavigateToSettings(object sender, EventArgs e)
-        {
+        private async void OnNavigateToSettings(object sender, EventArgs e) =>
             await Navigation.PushAsync(new SettingsPage());
-        }
     }
 }

@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 using MyLibrary.Models;
 using MyLibrary.Services;
@@ -11,71 +11,72 @@ namespace MyLibrary
 {
     public partial class ProfilePage : ContentPage
     {
-        private TxtStorageService _storageService;
+        private readonly TxtStorageService _storageService;
         private string _profileFilePath;
-        private const char Delimiter = '|';
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await LoadProfileAndStatsAsync();
-        }
 
         public ProfilePage()
         {
             InitializeComponent();
-            _profileFilePath = Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{AuthService.CurrentUsername}.txt");
             _storageService = new TxtStorageService();
+            _profileFilePath = GetProfilePath(AuthService.CurrentUsername);
         }
 
-        private async Task LoadProfileAndStatsAsync()
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await CaricaProfiloAsync();
+        }
+
+        private async Task CaricaProfiloAsync()
         {
             try
             {
-                string username = AuthService.CurrentUsername;
-                string location = string.Empty;
+                // Recupera la data di creazione salvata nelle preferenze al momento del login
+                string dataSalvata = Preferences.Default.Get(
+                    $"{AuthService.CurrentUsername}_CreationDate",
+                    DateTime.Now.ToString("yyyy-MM-dd")
+                );
+                DateTime dataCreazione = DateTime.TryParse(dataSalvata, out DateTime d) ? d : DateTime.Now;
 
-                string cachedDateStr = Preferences.Default.Get($"{AuthService.CurrentUsername}_CreationDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                DateTime creationDate = DateTime.Parse(cachedDateStr);
-
+                // Legge la posizione dal file profilo se esiste
+                string posizione = string.Empty;
                 if (File.Exists(_profileFilePath))
                 {
-                    string content = await File.ReadAllTextAsync(_profileFilePath);
-                    string[] segments = content.Split(Delimiter);
-
-                    if (segments.Length >= 2)
-                    {
-                        location = segments[0];
-                    }
+                    string contenuto = await File.ReadAllTextAsync(_profileFilePath);
+                    posizione = contenuto.Split('|')[0];
                 }
 
-                List<MediaItem> itemsList = await _storageService.LoadMediaItemsAsync();
+                // Conta i media per tipo dalla libreria
+                List<MediaItem> items = await _storageService.LoadMediaItemsAsync();
 
-                int movies = itemsList.Count(i => i.Type.Equals("Movie", StringComparison.OrdinalIgnoreCase));
-                int books = itemsList.Count(i => i.Type.Equals("Book", StringComparison.OrdinalIgnoreCase));
-                int tv = itemsList.Count(i => i.Type.Equals("TV Series", StringComparison.OrdinalIgnoreCase) || i.Type.Equals("TV", StringComparison.OrdinalIgnoreCase));
-                int anime = itemsList.Count(i => i.Type.Equals("Anime", StringComparison.OrdinalIgnoreCase));
-                int comics = itemsList.Count(i => i.Type.Equals("Comic", StringComparison.OrdinalIgnoreCase) || i.Type.Equals("Comics", StringComparison.OrdinalIgnoreCase));
+                int film = items.Count(i => i.Type.Equals("Movie", StringComparison.OrdinalIgnoreCase));
+                int libri = items.Count(i => i.Type.Equals("Book", StringComparison.OrdinalIgnoreCase));
+                int serie = items.Count(i => i.Type.Equals("TV Series", StringComparison.OrdinalIgnoreCase));
+                int anime = items.Count(i => i.Type.Equals("Anime", StringComparison.OrdinalIgnoreCase));
+                int fumetti = items.Count(i => i.Type.Equals("Comic", StringComparison.OrdinalIgnoreCase));
 
-                var favoriteTitles = itemsList.Where(i => i.IsFavorite).Select(i => $"� {i.Title} ({i.Type})");
-                string favoritesDisplay = string.Join(Environment.NewLine, favoriteTitles);
+                // Costruisce la lista dei preferiti
+                var preferiti = items
+                    .Where(i => i.IsFavorite)
+                    .Select(i => $"• {i.Title} ({i.Type})");
+                string testoPreferiti = preferiti.Any()
+                    ? string.Join(Environment.NewLine, preferiti)
+                    : "Nessun preferito aggiunto.";
 
-                // Update read-only interface locks safely
-                EntryUsername.Text = username;
-                EntryLocation.Text = location;
-                PickerCreationDate.Date = creationDate;
-
-                EntryMovies.Text = movies.ToString();
-                EntryBooks.Text = books.ToString();
-                EntryTV.Text = tv.ToString();
+                // Aggiorna la UI
+                EntryUsername.Text = AuthService.CurrentUsername;
+                EntryLocation.Text = posizione;
+                PickerCreationDate.Date = dataCreazione;
+                EntryMovies.Text = film.ToString();
+                EntryBooks.Text = libri.ToString();
+                EntryTV.Text = serie.ToString();
                 EntryAnime.Text = anime.ToString();
-                EntryComics.Text = comics.ToString();
-
-                EditorFavorites.Text = string.IsNullOrWhiteSpace(favoritesDisplay) ? "No favorites added yet." : favoritesDisplay;
+                EntryComics.Text = fumetti.ToString();
+                EditorFavorites.Text = testoPreferiti;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error loading user dashboard profile elements: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Errore caricamento profilo: {ex.Message}");
             }
         }
 
@@ -83,118 +84,111 @@ namespace MyLibrary
         {
             try
             {
-                string newUsername = EntryUsername.Text?.Trim();
+                string nuovoUsername = EntryUsername.Text?.Trim();
 
-                if (string.IsNullOrWhiteSpace(newUsername))
+                if (string.IsNullOrWhiteSpace(nuovoUsername))
                 {
-                    await DisplayAlert("Validation Error", "Username cannot be empty.", "OK");
+                    await DisplayAlert("Errore", "L'username non può essere vuoto.", "OK");
                     return;
                 }
 
-                if (!newUsername.Equals(AuthService.CurrentUsername, StringComparison.OrdinalIgnoreCase))
+                // Cambia username se è stato modificato
+                if (!nuovoUsername.Equals(AuthService.CurrentUsername, StringComparison.OrdinalIgnoreCase))
                 {
                     var authService = new AuthService();
-
-                    await authService.ChangeUsernameAsync(AuthService.CurrentUsername, newUsername);
-
-                    _profileFilePath = Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{AuthService.CurrentUsername}.txt");
-                    _storageService = new TxtStorageService();
+                    await authService.ChangeUsernameAsync(AuthService.CurrentUsername, nuovoUsername);
+                    _profileFilePath = GetProfilePath(AuthService.CurrentUsername);
                 }
 
-                string safeLoc = (EntryLocation.Text ?? string.Empty).Replace('|', ' ');
+                // Salva la posizione (rimuove il delimitatore per sicurezza)
+                string posizioneSicura = (EntryLocation.Text ?? string.Empty).Replace("|", " ");
+                await File.WriteAllTextAsync(_profileFilePath, posizioneSicura);
 
-                string serializedData = $"{safeLoc}";
-
-                await File.WriteAllTextAsync(_profileFilePath, serializedData);
-                await DisplayAlert("Profile Saved", "Your account has been updated.", "OK");
+                await DisplayAlert("Profilo salvato", "Le modifiche sono state applicate.", "OK");
             }
             catch (InvalidOperationException ex)
             {
-                await DisplayAlert("Username unavailable", ex.Message, "OK");
+                await DisplayAlert("Username non disponibile", ex.Message, "OK");
                 EntryUsername.Text = AuthService.CurrentUsername;
             }
             catch (Exception ex)
             {
-                await DisplayAlert("System Error", $"Could not process changes: {ex.Message}", "OK");
+                await DisplayAlert("Errore di sistema", $"Impossibile salvare: {ex.Message}", "OK");
             }
         }
 
-        private async void OnLogoutClicked(object sender, EventArgs e)
+        private void OnLogoutClicked(object sender, EventArgs e)
         {
             AuthService.CurrentUsername = string.Empty;
             Application.Current.MainPage = new NavigationPage(new AuthPage());
         }
+
         private async void OnDeleteProfileClicked(object sender, EventArgs e)
         {
-            string usernameToDelete = AuthService.CurrentUsername;
+            string username = AuthService.CurrentUsername;
+            if (string.IsNullOrWhiteSpace(username)) return;
 
-            if (string.IsNullOrWhiteSpace(usernameToDelete)) return;
+            bool conferma = await DisplayAlert(
+                "Conferma eliminazione",
+                $"Sei sicuro di voler eliminare il profilo '{username}' e tutti i suoi dati?",
+                "Elimina",
+                "Annulla"
+            );
 
-            // Double-check user intent with explicit dialog box confirmation
-            bool confirm = await DisplayAlert(
-                "Confirm Operation",
-                $"Are you sure you want to delete profile '{usernameToDelete}'?",
-                "Delete",
-                "Cancel");
-
-            if (!confirm) return;
+            if (!conferma) return;
 
             try
             {
-                string authFilePath = Path.Combine(FileSystem.AppDataDirectory, "users.txt");
-                if (File.Exists(authFilePath))
+                // Rimuove l'utente dal file di autenticazione
+                string authPath = Path.Combine(FileSystem.AppDataDirectory, "users.txt");
+                if (File.Exists(authPath))
                 {
-                    List<string> lines = (await File.ReadAllLinesAsync(authFilePath)).ToList();
-
-                    List<string> optimizedLines = lines
-                        .Where(line => !line.Split('|')[0].Equals(usernameToDelete, StringComparison.OrdinalIgnoreCase))
-                        .ToList();
-
-                    await File.WriteAllLinesAsync(authFilePath, optimizedLines);
+                    var righe = (await File.ReadAllLinesAsync(authPath)).ToList();
+                    righe.RemoveAll(r => r.Split('|')[0].Equals(username, StringComparison.OrdinalIgnoreCase));
+                    await File.WriteAllLinesAsync(authPath, righe);
                 }
 
-                string userLibraryDataFile = Path.Combine(FileSystem.AppDataDirectory, $"library_data_{usernameToDelete}.txt");
-                if (File.Exists(userLibraryDataFile)) File.Delete(userLibraryDataFile);
+                // Elimina i file dati dell'utente
+                EliminaFileSeEsiste(Path.Combine(FileSystem.AppDataDirectory, $"library_data_{username}.txt"));
+                EliminaFileSeEsiste(Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{username}.txt"));
+                EliminaFileSeEsiste(Path.Combine(FileSystem.AppDataDirectory, $"settings_data_{username}.txt"));
 
-                string userProfileDataFile = Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{usernameToDelete}.txt");
-                if (File.Exists(userProfileDataFile)) File.Delete(userProfileDataFile);
-
-                string targetPreferenceCacheKey = $"{usernameToDelete}_CreationDate";
-                if (Preferences.Default.ContainsKey(targetPreferenceCacheKey))
-                {
-                    Preferences.Default.Remove(targetPreferenceCacheKey);
-                }
+                // Rimuove le preferenze salvate
+                string chiave = $"{username}_CreationDate";
+                if (Preferences.Default.ContainsKey(chiave))
+                    Preferences.Default.Remove(chiave);
 
                 AuthService.CurrentUsername = string.Empty;
-
-                await DisplayAlert("Profile Deleted", "Your account and all your data was deleted.", "OK");
+                await DisplayAlert("Profilo eliminato", "Account e dati rimossi con successo.", "OK");
                 Application.Current.MainPage = new NavigationPage(new AuthPage());
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Wipe Failed", $"An unexpected storage fault occurred during cleanup: {ex.Message}", "OK");
+                await DisplayAlert("Errore", $"Eliminazione non riuscita: {ex.Message}", "OK");
             }
         }
 
-        private async void OnNavigateToDashboard(object sender, EventArgs e)
+        private static string GetProfilePath(string username) =>
+            Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{username}.txt");
+
+        private static void EliminaFileSeEsiste(string path)
         {
+            if (File.Exists(path)) File.Delete(path);
+        }
+
+        private async void OnNavigateToDashboard(object sender, EventArgs e) =>
             await Navigation.PushAsync(new MainPage());
-        }
-        private async void OnNavigateToAddMedia(object sender, EventArgs e)
-        {
+
+        private async void OnNavigateToAddMedia(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AddMediaPage());
-        }
-        private async void OnNavigateToStats(object sender, EventArgs e)
-        {
+
+        private async void OnNavigateToStats(object sender, EventArgs e) =>
             await Navigation.PushAsync(new StatsPage());
-        }
-        private async void OnNavigateToSettings(object sender, EventArgs e)
-        {
+
+        private async void OnNavigateToSettings(object sender, EventArgs e) =>
             await Navigation.PushAsync(new SettingsPage());
-        }
-        private async void OnNavigateToAbout(object sender, EventArgs e)
-        {
+
+        private async void OnNavigateToAbout(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AboutPage());
-        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using MyLibrary.Models;
 using MyLibrary.Services;
@@ -15,94 +16,71 @@ namespace MyLibrary
             InitializeComponent();
             _storageService = new TxtStorageService();
 
+            // Valori predefiniti al caricamento
             PickerType.SelectedIndex = 0;
-            PickerRating.SelectedIndex = 4;
+            PickerRating.SelectedIndex = 4; // voto 5 di default
         }
 
         private async void OnSaveClicked(object sender, EventArgs e)
         {
             try
             {
-                // 1. Validate mandatory fields
                 if (string.IsNullOrWhiteSpace(EntryTitle.Text))
                 {
-                    await DisplayAlert("Validation Error", "The Title field cannot be empty.", "OK");
+                    await DisplayAlert("Errore", "Il campo Titolo è obbligatorio.", "OK");
                     return;
                 }
 
-                // 2. Parse numeric inputs safely
-                double timeSpent = 0;
-                if (!string.IsNullOrWhiteSpace(EntryTime.Text))
+                double minutiSpesi = 0;
+                if (!string.IsNullOrWhiteSpace(EntryTime.Text) &&
+                    !double.TryParse(EntryTime.Text, out minutiSpesi))
                 {
-                    if (!double.TryParse(EntryTime.Text, out timeSpent))
-                    {
-                        throw new FormatException("Time Spent must be a valid number.");
-                    }
+                    await DisplayAlert("Errore", "Il campo Tempo deve essere un numero valido.", "OK");
+                    return;
                 }
 
-                // 3. Construct the MediaItem (Leveraging the encapsulation built into the model)
-                var newItem = new MediaItem
+                var nuovoItem = new MediaItem
                 {
                     Title = EntryTitle.Text.Trim(),
                     Type = PickerType.SelectedItem?.ToString() ?? "Book",
                     Genre = string.IsNullOrWhiteSpace(EntryGenre.Text) ? "General" : EntryGenre.Text.Trim(),
-                    Rating = (int)(PickerRating.SelectedItem ?? 10),
-                    TimeSpentMinutes = timeSpent,
-                    Review = EditorReview.Text?.Trim(),
+                    Rating = (int)(PickerRating.SelectedItem ?? 5),
+                    TimeSpentMinutes = minutiSpesi,
+                    Review = EditorReview.Text?.Trim() ?? string.Empty,
                     IsCompleted = CheckCompleted.IsChecked,
                     IsFavorite = CheckFavorite.IsChecked,
                     DateAdded = DateTime.Now
                 };
 
-                // 4. Save via JSON Service
-                List<MediaItem> existingItems = await _storageService.LoadMediaItemsAsync();
-                existingItems.Add(newItem);
-                await _storageService.SaveMediaItemsAsync(existingItems);
+                List<MediaItem> esistenti = await _storageService.LoadMediaItemsAsync();
+                esistenti.Add(nuovoItem);
+                await _storageService.SaveMediaItemsAsync(esistenti);
 
-                // 5. Success Feedback and Navigation
-                await DisplayAlert("Success", $"{newItem.Title} has been added to your library.", "OK");
-                await Navigation.PopToRootAsync(); // Navigate back to the previous page
-            }
-            catch (FormatException ex)
-            {
-                // Specifically catches the numeric parsing failure
-                await DisplayAlert("Input Error", ex.Message, "OK");
+                await DisplayAlert("Salvato", $"\"{nuovoItem.Title}\" aggiunto alla libreria.", "OK");
+                await Navigation.PopToRootAsync();
             }
             catch (Exception ex)
             {
-                // Catch-all for any other unexpected errors (file access, memory, etc.)
-                await DisplayAlert("System Error", $"Could not save the item: {ex.Message}", "OK");
+                await DisplayAlert("Errore di sistema", $"Impossibile salvare: {ex.Message}", "OK");
             }
         }
 
-        private async void OnCancelClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new MainPage());
-        }
+        private async void OnCancelClicked(object sender, EventArgs e) =>
+            await Navigation.PopAsync();
 
-        private async void OnNavigateToDashboard(object sender, EventArgs e)
-        {
+        private async void OnNavigateToDashboard(object sender, EventArgs e) =>
             await Navigation.PushAsync(new MainPage());
-        }
 
-        private async void OnNavigateToStats(object sender, EventArgs e)
-        {
+        private async void OnNavigateToStats(object sender, EventArgs e) =>
             await Navigation.PushAsync(new StatsPage());
-        }
 
-        private async void OnNavigateToProfile(object sender, EventArgs e)
-        {
+        private async void OnNavigateToProfile(object sender, EventArgs e) =>
             await Navigation.PushAsync(new ProfilePage());
-        }
 
-        private async void OnNavigateToSettings(object sender, EventArgs e)
-        {
+        private async void OnNavigateToSettings(object sender, EventArgs e) =>
             await Navigation.PushAsync(new SettingsPage());
-        }
 
-        private async void OnNavigateToAbout(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAbout(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AboutPage());
-        }
     }
 }

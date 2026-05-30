@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyLibrary.AuthPage"
-             Title="AuthPage">
+             x:Class="MyLibrary.AuthPage">
 
-    <Grid WidthRequest="950" HeightRequest="550" HorizontalOptions="Center" VerticalOptions="Center" ColumnDefinitions="*, *" ColumnSpacing="40" Padding="20">
+    <Grid WidthRequest="950"
+          HeightRequest="550"
+          HorizontalOptions="Center"
+          VerticalOptions="Center"
+          ColumnDefinitions="*, *"
+          ColumnSpacing="40"
+          Padding="20">
 
-        <Border Grid.Column="0" BackgroundColor="{AppThemeBinding Light=#E2E8F0, Dark=#1A1A1A}" StrokeShape="RoundRectangle 12" StrokeThickness="0" Padding="40">
+        <!-- Pannello Login -->
+        <Border Grid.Column="0" Style="{StaticResource Card}" Padding="40">
             <VerticalStackLayout Spacing="25" VerticalOptions="Center">
+
                 <VerticalStackLayout Spacing="4">
-                    <Label Text="Login" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
-                    <Label Text="Sign in to access your MyLibrary profile." FontSize="13" TextColor="#6B6B6B"/>
+                    <Label Text="Login" FontSize="26" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <Label Text="Accedi al tuo profilo MyLibrary."
+                           Style="{StaticResource LabelSubtitle}"/>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Spacing="6">
-                    <Label Text="Username" TextColor="#9A9A8E" FontAttributes="Bold" FontSize="13"/>
-                    <Entry x:Name="LoginUser" Placeholder="Username" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#262626}" TextColor="{AppThemeBinding Light=#111111, Dark=White}" PlaceholderColor="#444444" HeightRequest="45"/>
+                    <Label Text="Username" Style="{StaticResource LabelFieldTitle}"/>
+                    <Entry x:Name="LoginUser" Placeholder="Username" HeightRequest="45"/>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Spacing="6">
-                    <Label Text="Password" TextColor="#9A9A8E" FontAttributes="Bold" FontSize="13"/>
-                    <Entry x:Name="LoginPass" IsPassword="True" Placeholder="••••••••" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#262626}" TextColor="{AppThemeBinding Light=#111111, Dark=White}" PlaceholderColor="#444444" HeightRequest="45"/>
+                    <Label Text="Password" Style="{StaticResource LabelFieldTitle}"/>
+                    <Entry x:Name="LoginPass" IsPassword="True" Placeholder="••••••••" HeightRequest="45"/>
                 </VerticalStackLayout>
 
-                <Button Text="Sign In" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" Clicked="OnLoginAttemptClick" HeightRequest="48" Margin="0,10,0,0"/>
+                <Button Text="Accedi"
+                        Style="{StaticResource ButtonPrimary}"
+                        Clicked="OnLoginAttemptClick"
+                        Margin="0,10,0,0"/>
             </VerticalStackLayout>
         </Border>
 
-        <Border Grid.Column="1" BackgroundColor="{AppThemeBinding Light=#E2E8F0, Dark=#1A1A1A}" StrokeShape="RoundRectangle 12" StrokeThickness="0" Padding="40">
+        <!-- Pannello Registrazione -->
+        <Border Grid.Column="1" Style="{StaticResource Card}" Padding="40">
             <VerticalStackLayout Spacing="25" VerticalOptions="Center">
+
                 <VerticalStackLayout Spacing="4">
-                    <Label Text="Register" FontSize="26" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
-                    <Label Text="Sign up a new account to MyLibrary." FontSize="13" TextColor="#6B6B6B"/>
+                    <Label Text="Registrati" FontSize="26" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <Label Text="Crea un nuovo account MyLibrary."
+                           Style="{StaticResource LabelSubtitle}"/>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Spacing="6">
-                    <Label Text="Username" TextColor="#9A9A8E" FontAttributes="Bold" FontSize="13"/>
-                    <Entry x:Name="RegisterUser" Placeholder="Username" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#262626}" TextColor="{AppThemeBinding Light=#111111, Dark=White}" PlaceholderColor="#444444" HeightRequest="45"/>
+                    <Label Text="Username" Style="{StaticResource LabelFieldTitle}"/>
+                    <Entry x:Name="RegisterUser" Placeholder="Username" HeightRequest="45"/>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Spacing="6">
-                    <Label Text="Password" TextColor="#9A9A8E" FontAttributes="Bold" FontSize="13"/>
-                    <Entry x:Name="RegisterPass" IsPassword="True" Placeholder="••••••••" BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#262626}" TextColor="{AppThemeBinding Light=#111111, Dark=White}" PlaceholderColor="#444444" HeightRequest="45"/>
+                    <Label Text="Password" Style="{StaticResource LabelFieldTitle}"/>
+                    <Entry x:Name="RegisterPass" IsPassword="True" Placeholder="••••••••" HeightRequest="45"/>
                 </VerticalStackLayout>
 
-                <Button Text="Sign Up" BackgroundColor="#2E2E2E" TextColor="{AppThemeBinding Light=#111111, Dark=White}" FontAttributes="Bold" Clicked="OnRegisterAttemptClick" HeightRequest="48" Margin="0,10,0,0"/>
+                <Button Text="Crea account"
+                        Style="{StaticResource ButtonPrimary}"
+                        Clicked="OnRegisterAttemptClick"
+                        Margin="0,10,0,0"/>
             </VerticalStackLayout>
         </Border>
+
     </Grid>
 </ContentPage>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,61 +21,57 @@ namespace MyLibrary
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await LoadAndCalculateStatisticsAsync();
+            await CaricaStatisticheAsync();
         }
 
-        private async Task LoadAndCalculateStatisticsAsync()
+        private async Task CaricaStatisticheAsync()
         {
             try
             {
-                // 1. Fetch raw line data from your .txt database
-                List<MediaItem> allItems = await _storageService.LoadMediaItemsAsync();
+                List<MediaItem> items = await _storageService.LoadMediaItemsAsync();
 
-                if (allItems == null || allItems.Count == 0)
+                if (items == null || items.Count == 0)
                 {
-                    ResetUiMetrics();
+                    AzzeraContatori();
                     return;
                 }
 
-                // 2. Compute aggregate metrics using LINQ queries
-                int totalCount = allItems.Count;
-                int bookCount = allItems.Count(i => i.Type.Equals("Book", StringComparison.OrdinalIgnoreCase));
-                int movieCount = allItems.Count(i => i.Type.Equals("Movie", StringComparison.OrdinalIgnoreCase));
+                int totale = items.Count;
+                int libri = items.Count(i => i.Type.Equals("Book", StringComparison.OrdinalIgnoreCase));
+                int film = items.Count(i => i.Type.Equals("Movie", StringComparison.OrdinalIgnoreCase));
+                double mediaVoto = items.Average(i => i.Rating);
+                double percCompletati = (double)items.Count(i => i.IsCompleted) / totale * 100;
 
-                double avgRating = allItems.Average(i => i.Rating);
-                double completionRate = ((double)allItems.Count(i => i.IsCompleted) / totalCount) * 100;
-
-                // 3. Extract and sort genre counts
-                var genreSummary = allItems
-                    .GroupBy(i => i.Genre)
-                    .Select(g => new KeyValuePair<string, int>(string.IsNullOrWhiteSpace(g.Key) ? "General" : g.Key, g.Count()))
+                // Raggruppa per genere e ordina per quantità
+                var distribuzione = items
+                    .GroupBy(i => string.IsNullOrWhiteSpace(i.Genre) ? "General" : i.Genre)
+                    .Select(g => new KeyValuePair<string, int>(g.Key, g.Count()))
                     .OrderByDescending(kvp => kvp.Value)
                     .ToList();
 
-                // 4. Extract top 5 items ordered by time tracked
-                var topTimeInvestments = allItems
+                // Top 5 per tempo investito
+                var topTempo = items
                     .OrderByDescending(i => i.TimeSpentMinutes)
                     .Take(5)
                     .ToList();
 
-                // 5. Apply calculated values securely to UI text fields
-                lblTotalBooks.Text = bookCount.ToString();
-                lblTotalMovies.Text = movieCount.ToString();
-                lblAvgRating.Text = avgRating.ToString();
-                lblCompletionRate.Text = $"{completionRate:F0}%";
+                // Aggiorna i label
+                lblTotalBooks.Text = libri.ToString();
+                lblTotalMovies.Text = film.ToString();
+                lblAvgRating.Text = mediaVoto.ToString("F1");
+                lblCompletionRate.Text = $"{percCompletati:F0}%";
 
-                GenreListView.ItemsSource = genreSummary;
-                TopTimeCollectionView.ItemsSource = topTimeInvestments;
+                GenreListView.ItemsSource = distribuzione;
+                TopTimeCollectionView.ItemsSource = topTempo;
             }
             catch (Exception ex)
             {
-                // Core exception containment blocks
-                System.Diagnostics.Debug.WriteLine($"Statistics processing error: {ex.Message}");
-                await DisplayAlert("Metrics Failure", "An error occurred while compiling analytical ledger rows.", "Dismiss");
+                System.Diagnostics.Debug.WriteLine($"Errore statistiche: {ex.Message}");
+                await DisplayAlert("Errore", "Impossibile caricare le statistiche.", "OK");
             }
         }
 
-        private void ResetUiMetrics()
+        private void AzzeraContatori()
         {
             lblTotalBooks.Text = "0";
             lblTotalMovies.Text = "0";
@@ -85,29 +81,19 @@ namespace MyLibrary
             TopTimeCollectionView.ItemsSource = null;
         }
 
-        private async void OnNavigateToDashboard(object sender, EventArgs e)
-        {
+        private async void OnNavigateToDashboard(object sender, EventArgs e) =>
             await Navigation.PushAsync(new MainPage());
-        }
 
-        private async void OnNavigateToAddMedia(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAddMedia(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AddMediaPage());
-        }
 
-        private async void OnNavigateToProfile(object sender, EventArgs e)
-        {
+        private async void OnNavigateToProfile(object sender, EventArgs e) =>
             await Navigation.PushAsync(new ProfilePage());
-        }
 
-        private async void OnNavigateToSettings(object sender, EventArgs e)
-        {
+        private async void OnNavigateToSettings(object sender, EventArgs e) =>
             await Navigation.PushAsync(new SettingsPage());
-        }
 
-        private async void OnNavigateToAbout(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAbout(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AboutPage());
-        }
     }
 }

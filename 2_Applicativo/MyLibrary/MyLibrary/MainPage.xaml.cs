@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using MyLibrary.Models;
 using MyLibrary.Services;
@@ -11,98 +12,90 @@ namespace MyLibrary
     public partial class MainPage : ContentPage
     {
         private readonly TxtStorageService _storageService;
-        private List<MediaItem> _allItemsList;
-        public ObservableCollection<MediaItem> DisplayedItems { get; set; }
+        private List<MediaItem> _tuttiGliItem;
+
+        public ObservableCollection<MediaItem> ItemVisualizzati { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
             _storageService = new TxtStorageService();
-            DisplayedItems = new ObservableCollection<MediaItem>();
-            MediaCollectionView.ItemsSource = DisplayedItems;
+            ItemVisualizzati = new ObservableCollection<MediaItem>();
+            MediaCollectionView.ItemsSource = ItemVisualizzati;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await RefreshDataDataGridAsync();
+            await CaricaDatiAsync();
         }
 
-        private async Task RefreshDataDataGridAsync()
+        private async Task CaricaDatiAsync()
         {
             try
             {
-                _allItemsList = await _storageService.LoadMediaItemsAsync();
-                FilterAndRenderGrid(MediaSearchBar.Text);
+                _tuttiGliItem = await _storageService.LoadMediaItemsAsync();
+                AggiornataGriglia(MediaSearchBar.Text);
             }
             catch (Exception ex)
             {
-                await DisplayAlert("System Error", $"Failed to update interface feeds: {ex.Message}", "OK");
+                await DisplayAlert("Errore", $"Impossibile caricare i dati: {ex.Message}", "OK");
             }
         }
 
-        private void FilterAndRenderGrid(string query)
+        // Filtra la lista e aggiorna i contatori in base alla query di ricerca
+        private void AggiornataGriglia(string query)
         {
-            if (_allItemsList == null) return;
+            if (_tuttiGliItem == null) return;
 
-            var filtered = string.IsNullOrWhiteSpace(query)
-                ? _allItemsList
-                : _allItemsList.Where(i => i.Title.Contains(query, StringComparison.OrdinalIgnoreCase) ||
-                                           i.Genre.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filtrati = string.IsNullOrWhiteSpace(query)
+                ? _tuttiGliItem
+                : _tuttiGliItem.Where(i =>
+                    i.Title.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                    i.Genre.Contains(query, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
 
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                DisplayedItems.Clear();
-                foreach (var item in filtered)
-                {
-                    DisplayedItems.Add(item);
-                }
+            ItemVisualizzati.Clear();
+            foreach (var item in filtrati)
+                ItemVisualizzati.Add(item);
 
-                lblTotalCount.Text = _allItemsList.Count.ToString();
-                lblCompletedCount.Text = _allItemsList.Count(i => i.IsCompleted).ToString();
-                double hoursTotal = _allItemsList.Sum(i => i.TimeSpentMinutes) / 60.0;
-                lblTotalHours.Text = $"{hoursTotal:F1} hrs";
-            });
+            // Aggiorna i contatori in base a TUTTI i media, non solo quelli filtrati
+            lblTotalCount.Text = _tuttiGliItem.Count.ToString();
+            lblCompletedCount.Text = _tuttiGliItem.Count(i => i.IsCompleted).ToString();
+            lblTotalHours.Text = $"{_tuttiGliItem.Sum(i => i.TimeSpentMinutes) / 60.0:F1} hrs";
         }
 
         private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
         {
-            FilterAndRenderGrid(e.NewTextValue);
+            AggiornataGriglia(e.NewTextValue);
         }
 
+        // Mostra la recensione del media selezionato in un dialog
         private async void OnMediaSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.CurrentSelection.FirstOrDefault() is MediaItem selectedItem)
-            {
-                MediaCollectionView.SelectedItem = null;
+            if (e.CurrentSelection.FirstOrDefault() is not MediaItem selected) return;
 
-                await DisplayAlert(selectedItem.Title, $"Review Notes:\n{selectedItem.Review}", "Dismiss");
-            }
+            string corpo = string.IsNullOrWhiteSpace(selected.Review)
+                ? "Nessuna recensione inserita."
+                : selected.Review;
+
+            await DisplayAlert(selected.Title, corpo, "Chiudi");
+            MediaCollectionView.SelectedItem = null;
         }
 
-        private async void OnNavigateToAddMedia(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAddMedia(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AddMediaPage());
-        }
 
-        private async void OnNavigateToStats(object sender, EventArgs e)
-        {
+        private async void OnNavigateToStats(object sender, EventArgs e) =>
             await Navigation.PushAsync(new StatsPage());
-        }
 
-        private async void OnNavigateToProfile(object sender, EventArgs e)
-        {
+        private async void OnNavigateToProfile(object sender, EventArgs e) =>
             await Navigation.PushAsync(new ProfilePage());
-        }
 
-        private async void OnNavigateToSettings(object sender, EventArgs e)
-        {
+        private async void OnNavigateToSettings(object sender, EventArgs e) =>
             await Navigation.PushAsync(new SettingsPage());
-        }
 
-        private async void OnNavigateToAbout(object sender, EventArgs e)
-        {
+        private async void OnNavigateToAbout(object sender, EventArgs e) =>
             await Navigation.PushAsync(new AboutPage());
-        }
     }
 }

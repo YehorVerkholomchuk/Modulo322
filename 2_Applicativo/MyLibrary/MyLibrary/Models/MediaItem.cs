@@ -1,15 +1,11 @@
-﻿using System;
+using System;
 
 namespace MyLibrary.Models
 {
     public class MediaItem
     {
         private string _title;
-        private string _type; // Movie, Book, Comic, TV Series
-        private string _genre;
         private int _rating;
-        private string _review;
-        private double _timeSpentMinutes;
 
         public Guid Id { get; set; } = Guid.NewGuid();
 
@@ -19,22 +15,15 @@ namespace MyLibrary.Models
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Title cannot be empty.");
+                    throw new ArgumentException("Il titolo non può essere vuoto.");
                 _title = value;
             }
         }
 
-        public string Type
-        {
-            get => _type;
-            set => _type = value ?? "Book";
-        }
+        // Tipo di media: Movie, Book, Comic, TV Series, Anime
+        public string Type { get; set; } = "Book";
 
-        public string Genre
-        {
-            get => _genre;
-            set => _genre = value ?? "General";
-        }
+        public string Genre { get; set; } = "General";
 
         public int Rating
         {
@@ -42,27 +31,23 @@ namespace MyLibrary.Models
             set
             {
                 if (value < 0 || value > 10)
-                    throw new ArgumentOutOfRangeException("Rating must be between 0 and 10.");
+                    throw new ArgumentOutOfRangeException(nameof(Rating), "Il voto deve essere tra 0 e 10.");
                 _rating = value;
             }
         }
 
-        public string Review
-        {
-            get => _review;
-            set => _review = value ?? string.Empty;
-        }
+        public string Review { get; set; } = string.Empty;
 
-        public double TimeSpentMinutes
-        {
-            get => _timeSpentMinutes;
-            set => _timeSpentMinutes = value >= 0 ? value : 0;
-        }
+        // Minuti totali dedicati a questo media
+        public double TimeSpentMinutes { get; set; }
 
         public bool IsCompleted { get; set; }
 
-        public bool IsFavorite { get; set; } = false;
-        public string ConnectedSaga { get; set; } // Keeps track of universe links (e.g. Lord of the Rings)
+        public bool IsFavorite { get; set; }
+
+        // Saga/universo di appartenenza (es. "Il Signore degli Anelli")
+        public string ConnectedSaga { get; set; } = string.Empty;
+
         public DateTime DateAdded { get; set; } = DateTime.Now;
     }
 }

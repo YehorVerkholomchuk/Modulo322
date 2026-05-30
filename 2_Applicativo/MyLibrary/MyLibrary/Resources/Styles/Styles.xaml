@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <?xaml-comp compile="true" ?>
-<ResourceDictionary 
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ============================================================ -->
+    <!-- STILI BASE MAUI (generati dal template, non modificare)      -->
+    <!-- ============================================================ -->
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
@@ -422,6 +426,135 @@
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Magenta}, Dark={StaticResource White}}" />
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray950}}" />
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
+    </Style>
+
+    <!-- ============================================================ -->
+    <!-- STILI CUSTOM MyLibrary                                       -->
+    <!-- Usati nelle pagine con Style="{StaticResource NomeStile}"    -->
+    <!-- ============================================================ -->
+
+    <!-- Card: riquadro contenitore con bordo e angoli arrotondati -->
+    <Style x:Key="Card" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#FFFFFF, Dark=#1E1E1E}" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=#EDEBE4, Dark=#333333}" />
+        <Setter Property="Padding" Value="25" />
+    </Style>
+
+    <!-- Pulsante primario: azione principale della pagina -->
+    <Style x:Key="ButtonPrimary" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E2E8F0, Dark=#1A1A1A}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="HeightRequest" Value="45" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Pulsante secondario: annulla o azione neutra -->
+    <Style x:Key="ButtonSecondary" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#EDEBE4" />
+        <Setter Property="TextColor" Value="#555555" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="HeightRequest" Value="45" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Pulsante distruttivo: logout, elimina -->
+    <Style x:Key="ButtonDanger" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#b00900" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="HeightRequest" Value="45" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!-- Sidebar: sfondo del pannello di navigazione laterale -->
+    <Style x:Key="SidebarBorder" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E2E8F0, Dark=#1A1A1A}" />
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="StrokeShape" Value="Rectangle" />
+    </Style>
+
+    <!-- Voce di navigazione nella sidebar (pagina non attiva) -->
+    <Style x:Key="NavItemBorder" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 8" />
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="Padding" Value="14,12" />
+    </Style>
+
+    <!-- Label voce sidebar inattiva -->
+    <Style x:Key="NavLabelInactive" TargetType="Label">
+        <Setter Property="TextColor" Value="#6B6B6B" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Label voce sidebar attiva (pagina corrente) -->
+    <Style x:Key="NavLabelActive" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Titolo di una sezione dentro una Card -->
+    <Style x:Key="LabelSectionTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Intestazione di un campo del form -->
+    <Style x:Key="LabelFieldTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="#777777" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Testo secondario / descrizione -->
+    <Style x:Key="LabelSubtitle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="#9A9A8E" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Numero grande nelle card contatori -->
+    <Style x:Key="LabelCounter" TargetType="Label">
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#111111, Dark=#FFFFFF}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Intestazione colonna tabella: maiuscolo, spaziato, grigio -->
+    <Style x:Key="LabelTableHeader" TargetType="Label">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="CharacterSpacing" Value="2" />
+        <Setter Property="TextColor" Value="#AAAAAA" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+
+    <!-- Divisore orizzontale sottile tra sezioni -->
+    <Style x:Key="Divider" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#EDEBE4, Dark=#333333}" />
+        <Setter Property="Margin" Value="0,5" />
+    </Style>
+
+    <!-- Switch nelle impostazioni -->
+    <Style x:Key="SettingsSwitch" TargetType="Switch">
+        <Setter Property="OnColor" Value="#1A1A1A" />
+        <Setter Property="VerticalOptions" Value="Center" />
     </Style>
 
 </ResourceDictionary>

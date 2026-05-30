@@ -1,15 +1,17 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace MyLibrary.Services
 {
     public class AuthService
     {
         private readonly string _authFilePath;
-        private const char Delimiter = '|';
+        private const char Delimitatore = '|';
+
+        // Utente attualmente loggato, accessibile globalmente
         public static string CurrentUsername { get; set; } = string.Empty;
 
         public AuthService()
@@ -17,122 +19,126 @@ namespace MyLibrary.Services
             _authFilePath = Path.Combine(FileSystem.AppDataDirectory, "users.txt");
         }
 
+        // Registra un nuovo utente. Lancia eccezione se il nome è già in uso.
         public async Task<bool> RegisterUserAsync(string username, string password)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("Username and password fields cannot be left empty.");
+                throw new ArgumentException("Username e password non possono essere vuoti.");
 
             username = username.Trim();
 
-            try
-            {
-                List<string> lines = File.Exists(_authFilePath)
-                    ? (await File.ReadAllLinesAsync(_authFilePath)).ToList()
-                    : new List<string>();
+            List<string> lines = File.Exists(_authFilePath)
+                ? (await File.ReadAllLinesAsync(_authFilePath)).ToList()
+                : new List<string>();
 
-                // Check if user already exists
-                foreach (string line in lines)
-                {
-                    string[] segments = line.Split(Delimiter);
-                    if (segments.Length > 0 && segments[0].Equals(username, StringComparison.OrdinalIgnoreCase))
-                    {
-                        throw new InvalidOperationException("This username is already taken.");
-                    }
-                }
+            bool esisteGia = lines.Any(l => l.Split(Delimitatore)[0].Equals(username, StringComparison.OrdinalIgnoreCase));
+            if (esisteGia)
+                throw new InvalidOperationException("Questo username è già in uso.");
 
-                // Append new account parameters. Store creation date here to lock it down automatically.
-                string newAccountLine = $"{username}{Delimiter}{password}{Delimiter}{DateTime.Now:yyyy-MM-dd}";
-                lines.Add(newAccountLine);
+            // Formato riga: username|password|data_creazione
+            string nuovaRiga = $"{username}{Delimitatore}{password}{Delimitatore}{DateTime.Now:yyyy-MM-dd}";
+            lines.Add(nuovaRiga);
+            await File.WriteAllLinesAsync(_authFilePath, lines);
 
-                await File.WriteAllLinesAsync(_authFilePath, lines);
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return true;
         }
 
+        // Valida le credenziali e restituisce la data di creazione dell'account.
         public async Task<DateTime> ValidateLoginAsync(string username, string password)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("Please fill out all credential inputs.");
+                throw new ArgumentException("Inserisci username e password.");
 
             username = username.Trim();
 
             if (!File.Exists(_authFilePath))
-                throw new FileNotFoundException("No accounts found on this machine. Please register first.");
+                throw new FileNotFoundException("Nessun account trovato. Registrati prima.");
 
             string[] lines = await File.ReadAllLinesAsync(_authFilePath);
 
             foreach (string line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
-                string[] segments = line.Split(Delimiter);
 
-                if (segments.Length >= 2 && segments[0].Equals(username, StringComparison.OrdinalIgnoreCase))
-                {
-                    if (segments[1] == password)
-                    {
-                        CurrentUsername = segments[0];
+                string[] segmenti = line.Split(Delimitatore);
+                if (segmenti.Length < 2) continue;
 
-                        return segments.Length >= 3 && DateTime.TryParse(segments[2], out DateTime parsedDate)
-                            ? parsedDate
-                            : DateTime.Now;
-                    }
-                    throw new UnauthorizedAccessException("Incorrect password entered.");
-                }
+                if (!segmenti[0].Equals(username, StringComparison.OrdinalIgnoreCase)) continue;
+
+                if (segmenti[1] != password)
+                    throw new UnauthorizedAccessException("Password errata.");
+
+                CurrentUsername = segmenti[0];
+
+                return segmenti.Length >= 3 && DateTime.TryParse(segmenti[2], out DateTime data)
+                    ? data
+                    : DateTime.Now;
             }
 
-            throw new KeyNotFoundException("Account credentials not recognized.");
+            throw new KeyNotFoundException("Account non trovato.");
         }
 
-        public async Task<bool> ChangeUsernameAsync(string oldUsername, string newUsername)
+        // Cambia l'username dell'utente loggato e rinomina i file associati.
+        public async Task ChangeUsernameAsync(string vecchioUsername, string nuovoUsername)
         {
-            if (string.IsNullOrWhiteSpace(newUsername))
-                throw new ArgumentException("Username cannot be empty.");
+            if (string.IsNullOrWhiteSpace(nuovoUsername))
+                throw new ArgumentException("Il nuovo username non può essere vuoto.");
 
-            newUsername = newUsername.Trim();
+            nuovoUsername = nuovoUsername.Trim();
 
-            if (oldUsername.Equals(newUsername, StringComparison.OrdinalIgnoreCase))
-                return true;
+            if (vecchioUsername.Equals(nuovoUsername, StringComparison.OrdinalIgnoreCase))
+                return;
 
             if (!File.Exists(_authFilePath))
-                throw new FileNotFoundException("Auth database missing.");
+                throw new FileNotFoundException("File utenti non trovato.");
 
             List<string> lines = (await File.ReadAllLinesAsync(_authFilePath)).ToList();
 
-            bool isTaken = lines.Any(l => l.Split(Delimiter)[0].Equals(newUsername, StringComparison.OrdinalIgnoreCase));
-            if (isTaken)
-                throw new InvalidOperationException("This username is already taken.");
+            bool giàUsato = lines.Any(l => l.Split(Delimitatore)[0].Equals(nuovoUsername, StringComparison.OrdinalIgnoreCase));
+            if (giàUsato)
+                throw new InvalidOperationException("Questo username è già in uso.");
 
+            // Aggiorna la riga dell'utente nel file
             for (int i = 0; i < lines.Count; i++)
             {
-                string[] segments = lines[i].Split(Delimiter);
-                if (segments[0].Equals(oldUsername, StringComparison.OrdinalIgnoreCase))
-                {
-                    segments[0] = newUsername;
-                    lines[i] = string.Join(Delimiter, segments);
-                    break;
-                }
+                string[] segmenti = lines[i].Split(Delimitatore);
+                if (!segmenti[0].Equals(vecchioUsername, StringComparison.OrdinalIgnoreCase)) continue;
+
+                segmenti[0] = nuovoUsername;
+                lines[i] = string.Join(Delimitatore, segmenti);
+                break;
             }
+
             await File.WriteAllLinesAsync(_authFilePath, lines);
 
-            string oldLibraryPath = Path.Combine(FileSystem.AppDataDirectory, $"library_data_{oldUsername}.txt");
-            string newLibraryPath = Path.Combine(FileSystem.AppDataDirectory, $"library_data_{newUsername}.txt");
-            if (File.Exists(oldLibraryPath)) File.Move(oldLibraryPath, newLibraryPath);
+            // Rinomina i file dati associati all'utente
+            RenameFileIfExists(
+                Path.Combine(FileSystem.AppDataDirectory, $"library_data_{vecchioUsername}.txt"),
+                Path.Combine(FileSystem.AppDataDirectory, $"library_data_{nuovoUsername}.txt")
+            );
+            RenameFileIfExists(
+                Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{vecchioUsername}.txt"),
+                Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{nuovoUsername}.txt")
+            );
+            RenameFileIfExists(
+                Path.Combine(FileSystem.AppDataDirectory, $"settings_data_{vecchioUsername}.txt"),
+                Path.Combine(FileSystem.AppDataDirectory, $"settings_data_{nuovoUsername}.txt")
+            );
 
-            string oldProfilePath = Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{oldUsername}.txt");
-            string newProfilePath = Path.Combine(FileSystem.AppDataDirectory, $"user_profile_data_{newUsername}.txt");
-            if (File.Exists(oldProfilePath)) File.Move(oldProfilePath, newProfilePath);
+            // Aggiorna la preferenza della data di creazione
+            string chiaveVecchia = $"{vecchioUsername}_CreationDate";
+            string chiaveNuova = $"{nuovoUsername}_CreationDate";
+            string dataSalvata = Preferences.Default.Get(chiaveVecchia, DateTime.Now.ToString("yyyy-MM-dd"));
+            Preferences.Default.Remove(chiaveVecchia);
+            Preferences.Default.Set(chiaveNuova, dataSalvata);
 
-            string cachedDate = Preferences.Default.Get($"{oldUsername}_CreationDate", DateTime.Now.ToString("yyyy-MM-dd"));
-            Preferences.Default.Remove($"{oldUsername}_CreationDate");
-            Preferences.Default.Set($"{newUsername}_CreationDate", cachedDate);
+            CurrentUsername = nuovoUsername;
+        }
 
-            CurrentUsername = newUsername;
-
-            return true;
+        private static void RenameFileIfExists(string oldPath, string newPath)
+        {
+            if (File.Exists(oldPath))
+                File.Move(oldPath, newPath);
         }
     }
 }

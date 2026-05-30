@@ -18,17 +18,23 @@ namespace MyLibrary
         {
             try
             {
-                DateTime accountCreatedDate = await _authService.ValidateLoginAsync(LoginUser.Text, LoginPass.Text);
-                Preferences.Default.Set($"{AuthService.CurrentUsername}_CreationDate", accountCreatedDate.ToString("yyyy-MM-dd"));
+                DateTime dataCreazione = await _authService.ValidateLoginAsync(LoginUser.Text, LoginPass.Text);
+
+                // Salva la data di creazione nelle preferenze per mostrarla nel profilo
+                Preferences.Default.Set(
+                    $"{AuthService.CurrentUsername}_CreationDate",
+                    dataCreazione.ToString("yyyy-MM-dd")
+                );
+
+                // Applica le impostazioni salvate dell'utente
                 await App.ApplyGlobalSettingsAsync(AuthService.CurrentUsername);
-                MainThread.BeginInvokeOnMainThread(() =>
-                {
-                    Application.Current.MainPage = new NavigationPage(new MainPage());
-                });
+
+                // Naviga alla pagina principale
+                Application.Current.MainPage = new NavigationPage(new MainPage());
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Login Blocked", ex.Message, "Retry");
+                await DisplayAlert("Accesso negato", ex.Message, "Riprova");
             }
         }
 
@@ -36,19 +42,16 @@ namespace MyLibrary
         {
             try
             {
-                bool processed = await _authService.RegisterUserAsync(RegisterUser.Text, RegisterPass.Text);
-                if (processed)
-                {
-                    await DisplayAlert("Registration Success", "Account created! You can now login using the panel on the left.", "OK");
+                await _authService.RegisterUserAsync(RegisterUser.Text, RegisterPass.Text);
 
-                    // Clear fields out cleanly
-                    RegisterUser.Text = string.Empty;
-                    RegisterPass.Text = string.Empty;
-                }
+                await DisplayAlert("Registrazione completata", "Account creato! Puoi ora effettuare il login.", "OK");
+
+                RegisterUser.Text = string.Empty;
+                RegisterPass.Text = string.Empty;
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Registration Denied", ex.Message, "Fix Inputs");
+                await DisplayAlert("Registrazione fallita", ex.Message, "Correggi");
             }
         }
     }

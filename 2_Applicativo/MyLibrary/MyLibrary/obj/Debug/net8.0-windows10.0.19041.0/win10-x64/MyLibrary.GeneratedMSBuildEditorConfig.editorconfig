@@ -8,7 +8,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyLibrary
-build_property.ProjectDir = E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\
+build_property.ProjectDir = D:\samt\LABO 2\MyLibrary\MyLibrary\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTAotOptimizerEnabled = true
@@ -22,74 +22,68 @@ build_property.CsWinRTUseWindowsUIXamlProjections = false
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/AboutPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/AboutPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AboutPage.xaml
 build_metadata.AdditionalFiles.TargetPath = AboutPage.xaml
 build_metadata.AdditionalFiles.RelativePath = AboutPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/AddMediaPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/AddMediaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AddMediaPage.xaml
 build_metadata.AdditionalFiles.TargetPath = AddMediaPage.xaml
 build_metadata.AdditionalFiles.RelativePath = AddMediaPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/AppShell.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/samt/LABO 2/MyLibrary/MyLibrary/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/AuthPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/AuthPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.AuthPage.xaml
 build_metadata.AdditionalFiles.TargetPath = AuthPage.xaml
 build_metadata.AdditionalFiles.RelativePath = AuthPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/MainPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/ProfilePage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/ProfilePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.ProfilePage.xaml
 build_metadata.AdditionalFiles.TargetPath = ProfilePage.xaml
 build_metadata.AdditionalFiles.RelativePath = ProfilePage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Resources/Styles/Colors.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Resources/Styles/Styles.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/SettingsPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/SettingsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.SettingsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = SettingsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = SettingsPage.xaml
 
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/StatsPage.xaml]
+[D:/samt/LABO 2/MyLibrary/MyLibrary/StatsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.StatsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StatsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = StatsPage.xaml
-
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Style/App.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Style.App.xaml
-build_metadata.AdditionalFiles.TargetPath = Style\App.xaml
-build_metadata.AdditionalFiles.RelativePath = Style\App.xaml
-
-[E:/2025-26/Scuola/M322 Interfacce grafiche/Modulo322/2_Applicativo/MyLibrary/MyLibrary/Style/SettingsStyle.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyLibrary.Style.SettingsStyle.xaml
-build_metadata.AdditionalFiles.TargetPath = Style\SettingsStyle.xaml
-build_metadata.AdditionalFiles.RelativePath = Style\SettingsStyle.xaml
