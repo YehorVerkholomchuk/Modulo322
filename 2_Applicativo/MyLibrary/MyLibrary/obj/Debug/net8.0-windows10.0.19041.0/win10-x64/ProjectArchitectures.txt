@@ -1,1 +1,0 @@
-D:\samt\LABO 2\MyLibrary\MyLibrary\MyLibrary.csproj;x64
