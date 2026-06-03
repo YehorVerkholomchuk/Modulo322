@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\settingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\profilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\style\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92653590-89AB-4C1C-9FF5-DFC1B95FFE01}|MyLibrary\\MyLibrary.csproj|e:\\2025-26\\scuola\\m322 interfacce grafiche\\modulo322\\2_applicativo\\mylibrary\\mylibrary\\profilepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -44,14 +44,14 @@
               "RelativeDocumentMoniker": "MyLibrary\\Style\\SettingsStyle.xaml",
               "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\SettingsStyle.xaml",
               "RelativeToolTip": "MyLibrary\\Style\\SettingsStyle.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-05-29T13:27:58.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\Style\\App.xaml",
               "RelativeDocumentMoniker": "MyLibrary\\Style\\App.xaml",
@@ -59,8 +59,7 @@
               "RelativeToolTip": "MyLibrary\\Style\\App.xaml",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACUAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-29T12:41:15.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-29T12:41:15.688Z"
             },
             {
               "$type": "Document",
@@ -77,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ProfilePage.xaml",
               "DocumentMoniker": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\ProfilePage.xaml",
               "RelativeDocumentMoniker": "MyLibrary\\ProfilePage.xaml",
@@ -98,8 +97,7 @@
               "RelativeToolTip": "MyLibrary\\ProfilePage.xaml.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T11:26:55.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T11:26:55.374Z"
             }
           ]
         }

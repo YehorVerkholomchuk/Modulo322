@@ -23,7 +23,7 @@
     </Style>
     
     <Style x:Key="CardSettingsPicker" TargetType="Picker">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#111111, Dark=#333}" />
-        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#f4f4f4f4, Dark=#333}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=#1111111, Dark=#FFFFFF}" />
     </Style>
 </ResourceDictionary>
