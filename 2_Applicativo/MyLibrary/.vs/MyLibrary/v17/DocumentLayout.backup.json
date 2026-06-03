@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "MyLibrary\\ProfilePage.xaml.cs",
               "ToolTip": "E:\\2025-26\\Scuola\\M322 Interfacce grafiche\\Modulo322\\2_Applicativo\\MyLibrary\\MyLibrary\\ProfilePage.xaml.cs",
               "RelativeToolTip": "MyLibrary\\ProfilePage.xaml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-03T11:12:20.997Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "MyLibrary\\ProfilePage.xaml",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T11:11:06.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-03T11:11:06.016Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "MyLibrary\\Resources\\Styles\\Styles.xaml",
               "ViewState": "AgIAAPkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T11:10:59.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-03T11:10:59.282Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "MyLibrary\\App.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-03T11:10:46.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-03T11:10:46.719Z"
             }
           ]
         }

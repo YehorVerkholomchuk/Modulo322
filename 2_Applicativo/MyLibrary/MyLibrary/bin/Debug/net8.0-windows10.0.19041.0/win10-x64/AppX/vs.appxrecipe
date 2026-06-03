@@ -30,7 +30,7 @@
     <AppXManifest Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-06-03T11:11:21.830</Modified>
+      <Modified>2026-06-03T13:26:20.806</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MyLibrary.dll">
       <PackagePath>MyLibrary.dll</PackagePath>
-      <Modified>2026-06-03T11:11:18.813</Modified>
+      <Modified>2026-06-03T13:26:19.461</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MyLibrary.exe</PackagePath>
-      <Modified>2026-06-03T11:11:18.845</Modified>
+      <Modified>2026-06-03T13:26:19.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\2025-26\Scuola\M322 Interfacce grafiche\Modulo322\2_Applicativo\MyLibrary\MyLibrary\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
