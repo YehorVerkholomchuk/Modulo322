@@ -1,9 +1,0 @@
-Chi fa cosa e quali pagine? Tutti lavorano sui propri branch di Git (es. Riccardo - branch Riccardo) e NON su main
-
-Fabio: Pagina di LogIn e SignIn, 
-
-
-Riccardo:
-
-
-Yehor:
