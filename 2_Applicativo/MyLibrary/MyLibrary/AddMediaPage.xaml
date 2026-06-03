@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyLibrary.AddMediaPage">
+
+    <Grid ColumnDefinitions="240, *">
+
+        <!-- ===== SIDEBAR ===== -->
+        <Border Grid.Column="0" Style="{StaticResource SidebarBorder}">
+            <Grid RowDefinitions="Auto, *, Auto" Padding="24,36,24,28">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,0,0,40">
+                    <Label Text="MY LIBRARY" FontSize="13" FontAttributes="Bold"
+                           CharacterSpacing="3"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <BoxView Style="{StaticResource Divider}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="4">
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Dashboard" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToDashboard"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <!-- Pagina attiva: Add Media -->
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Add Media" Style="{StaticResource NavLabelActive}"/>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Statistics" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToStats"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Profile" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToProfile"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Settings" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToSettings"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="About" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAbout"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- ===== CONTENUTO PRINCIPALE ===== -->
+        <ScrollView Grid.Column="1" HorizontalOptions="Fill" Padding="40,0,40,40">
+            <VerticalStackLayout Spacing="0">
+
+                <Label Text="Aggiungi Media" FontSize="28" FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                <Label Text="Compila il modulo per aggiungere un nuovo elemento alla tua libreria."
+                       Style="{StaticResource LabelSubtitle}" Margin="0,0,0,20"/>
+
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Titolo -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Titolo *" Style="{StaticResource LabelFieldTitle}"/>
+                            <Entry x:Name="EntryTitle" Placeholder="Inserisci il titolo..."/>
+                        </VerticalStackLayout>
+
+                        <!-- Tipo, Genere, Voto, Tempo -->
+                        <Grid ColumnDefinitions="*, *, *, *" ColumnSpacing="15">
+
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Tipo *" Style="{StaticResource LabelFieldTitle}"/>
+                                <Picker x:Name="PickerType">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Movie</x:String>
+                                            <x:String>TV Series</x:String>
+                                            <x:String>Anime</x:String>
+                                            <x:String>Book</x:String>
+                                            <x:String>Comic</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Genere" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryGenre" Placeholder="Sci-Fi, Fantasy..."/>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="2" Spacing="5">
+                                <Label Text="Voto" Style="{StaticResource LabelFieldTitle}"/>
+                                <Picker x:Name="PickerRating">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:Int32}">
+                                            <x:Int32>1</x:Int32>
+                                            <x:Int32>2</x:Int32>
+                                            <x:Int32>3</x:Int32>
+                                            <x:Int32>4</x:Int32>
+                                            <x:Int32>5</x:Int32>
+                                            <x:Int32>6</x:Int32>
+                                            <x:Int32>7</x:Int32>
+                                            <x:Int32>8</x:Int32>
+                                            <x:Int32>9</x:Int32>
+                                            <x:Int32>10</x:Int32>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="3" Spacing="5">
+                                <Label Text="Tempo (minuti)" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryTime" Placeholder="120" Keyboard="Numeric"/>
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                        <!-- Recensione -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Recensione personale" Style="{StaticResource LabelFieldTitle}"/>
+                            <Editor x:Name="EditorReview" Placeholder="Scrivi la tua opinione..." HeightRequest="100"/>
+                        </VerticalStackLayout>
+
+                        <!-- Checkbox -->
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                            <CheckBox x:Name="CheckCompleted" Color="#C9A84C"/>
+                            <Label Text="Completato" VerticalOptions="Center" Style="{StaticResource LabelFieldTitle}"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                            <CheckBox x:Name="CheckFavorite" Color="#C9A84C"/>
+                            <Label Text="Aggiungi ai preferiti" VerticalOptions="Center" Style="{StaticResource LabelFieldTitle}"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Pulsanti azione -->
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,20,0,0">
+                            <Button Grid.Column="0" Text="Annulla"
+                                    Style="{StaticResource ButtonSecondary}"
+                                    Clicked="OnCancelClicked"/>
+                            <Button Grid.Column="1" Text="Salva"
+                                    Style="{StaticResource ButtonPrimary}"
+                                    Clicked="OnSaveClicked"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

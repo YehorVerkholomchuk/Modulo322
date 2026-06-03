@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyLibrary.ProfilePage">
+
+    <Grid ColumnDefinitions="240, *">
+
+        <!-- ===== SIDEBAR ===== -->
+        <Border Grid.Column="0" Style="{StaticResource SidebarBorder}">
+            <Grid RowDefinitions="Auto, *, Auto" Padding="24,36,24,28">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,0,0,40">
+                    <Label Text="MY LIBRARY" FontSize="13" FontAttributes="Bold"
+                           CharacterSpacing="3"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <BoxView Style="{StaticResource Divider}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="4">
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Dashboard" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToDashboard"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Add Media" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAddMedia"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Statistics" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToStats"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <!-- Pagina attiva: Profile -->
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Profile" Style="{StaticResource NavLabelActive}"/>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Settings" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToSettings"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="About" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAbout"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- ===== CONTENUTO PRINCIPALE ===== -->
+        <ScrollView Grid.Column="1" HorizontalOptions="Fill" Padding="40,0,40,40">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Header con titolo e pulsanti account -->
+                <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,20">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5">
+                        <Label Text="Profilo" FontSize="28" FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                        <Label Text="Gestisci il tuo account e visualizza le statistiche personali."
+                               Style="{StaticResource LabelSubtitle}"/>
+                    </VerticalStackLayout>
+
+                    <!-- Pulsanti Logout / Elimina -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="End">
+                        <Button Text="Logout"
+                                Style="{StaticResource ButtonDanger}"
+                                WidthRequest="180"
+                                Clicked="OnLogoutClicked"/>
+                        <Button Text="Elimina profilo"
+                                Style="{StaticResource ButtonDanger}"
+                                WidthRequest="180"
+                                Clicked="OnDeleteProfileClicked"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Card profilo -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Username -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Username *" Style="{StaticResource LabelFieldTitle}"/>
+                            <Entry x:Name="EntryUsername"/>
+                        </VerticalStackLayout>
+
+                        <!-- Posizione e data creazione -->
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Posizione" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryLocation" Placeholder="Milano, Italia"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Data creazione account" Style="{StaticResource LabelFieldTitle}"/>
+                                <DatePicker x:Name="PickerCreationDate" IsEnabled="False"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <BoxView Style="{StaticResource Divider}" Margin="0,10"/>
+
+                        <Label Text="Media tracciate" FontSize="20" FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+
+                        <!-- Contatori media per tipo (sola lettura) -->
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Film visti" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryMovies" Placeholder="0" IsReadOnly="True"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Libri letti" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryBooks" Placeholder="0" IsReadOnly="True"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                            <VerticalStackLayout Grid.Column="0" Spacing="5">
+                                <Label Text="Serie TV viste" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryTV" Placeholder="0" IsReadOnly="True"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Anime visti" Style="{StaticResource LabelFieldTitle}"/>
+                                <Entry x:Name="EntryAnime" Placeholder="0" IsReadOnly="True"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Fumetti letti" Style="{StaticResource LabelFieldTitle}"/>
+                            <Entry x:Name="EntryComics" Placeholder="0" IsReadOnly="True"/>
+                        </VerticalStackLayout>
+
+                        <BoxView Style="{StaticResource Divider}" Margin="0,10"/>
+
+                        <Label Text="Note personali" FontSize="20" FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+
+                        <!-- Lista preferiti (sola lettura, generata automaticamente) -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Media preferiti" Style="{StaticResource LabelFieldTitle}"/>
+                            <Editor x:Name="EditorFavorites"
+                                    Placeholder="Nessun preferito aggiunto..."
+                                    IsReadOnly="True"
+                                    HeightRequest="100"/>
+                        </VerticalStackLayout>
+
+                        <Button Text="Salva profilo"
+                                Style="{StaticResource ButtonPrimary}"
+                                Clicked="OnSaveProfileClicked"
+                                Margin="0,20,0,0"/>
+
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyLibrary.StatsPage">
+
+    <Grid ColumnDefinitions="240, *">
+
+        <!-- ===== SIDEBAR ===== -->
+        <Border Grid.Column="0" Style="{StaticResource SidebarBorder}">
+            <Grid RowDefinitions="Auto, *, Auto" Padding="24,36,24,28">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,0,0,40">
+                    <Label Text="MY LIBRARY" FontSize="13" FontAttributes="Bold"
+                           CharacterSpacing="3"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <BoxView Style="{StaticResource Divider}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="4">
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Dashboard" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToDashboard"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Add Media" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAddMedia"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <!-- Pagina attiva: Statistics -->
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Statistics" Style="{StaticResource NavLabelActive}"/>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Profile" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToProfile"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Settings" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToSettings"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="About" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAbout"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- ===== CONTENUTO PRINCIPALE ===== -->
+        <Grid Grid.Column="1" HorizontalOptions="Fill" Padding="40,0,40,40"
+              RowDefinitions="Auto, Auto, *" RowSpacing="30">
+
+            <!-- Header -->
+            <VerticalStackLayout Grid.Row="0">
+                <Label Text="Statistiche" FontSize="28" FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                <Label Text="Distribuzione della collezione, completamento e tempo tracciato."
+                       Style="{StaticResource LabelSubtitle}"/>
+            </VerticalStackLayout>
+
+            <!-- Card contatori -->
+            <Grid Grid.Row="1" ColumnDefinitions="*, *, *, *" ColumnSpacing="16">
+
+                <Border Grid.Column="0" Style="{StaticResource Card}" Padding="20">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="LIBRI TOTALI" Style="{StaticResource LabelTableHeader}"/>
+                        <Label x:Name="lblTotalBooks" Text="0" Style="{StaticResource LabelCounter}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource Card}" Padding="20">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="FILM TOTALI" Style="{StaticResource LabelTableHeader}"/>
+                        <Label x:Name="lblTotalMovies" Text="0" Style="{StaticResource LabelCounter}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="2" Style="{StaticResource Card}" Padding="20">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="VOTO MEDIO" Style="{StaticResource LabelTableHeader}"/>
+                        <Label x:Name="lblAvgRating" Text="0" FontSize="34" FontAttributes="Bold"
+                               TextColor="#C9A84C"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Grid.Column="3" Style="{StaticResource Card}" Padding="20">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="% COMPLETATI" Style="{StaticResource LabelTableHeader}"/>
+                        <Label x:Name="lblCompletionRate" Text="0%" Style="{StaticResource LabelCounter}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- Pannelli dettaglio -->
+            <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="30">
+
+                <!-- Distribuzione generi -->
+                <Border Grid.Column="0" Style="{StaticResource Card}">
+                    <Grid RowDefinitions="Auto, *">
+                        <Label Grid.Row="0" Text="Distribuzione generi"
+                               Style="{StaticResource LabelSectionTitle}" Margin="0,0,0,15"/>
+
+                        <ListView Grid.Row="1" x:Name="GenreListView"
+                                  SelectionMode="None" HasUnevenRows="True"
+                                  BackgroundColor="Transparent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnDefinitions="*, Auto" Padding="10,8" Margin="0,2">
+                                            <Label Grid.Column="0" Text="{Binding Key}"
+                                                   FontSize="15" VerticalOptions="Center"
+                                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                                            <Border Grid.Column="1"
+                                                    BackgroundColor="{AppThemeBinding Light=#FAFAF8, Dark=#2A2A2A}"
+                                                    StrokeShape="RoundRectangle 6"
+                                                    StrokeThickness="1" Stroke="#EDEBE4"
+                                                    Padding="10,4"
+                                                    HorizontalOptions="End" VerticalOptions="Center">
+                                                <Label Text="{Binding Value, StringFormat='{0} item'}"
+                                                       FontSize="12" FontAttributes="Bold" TextColor="#777777"/>
+                                            </Border>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Border>
+
+                <!-- Top 5 per tempo -->
+                <Border Grid.Column="1" Style="{StaticResource Card}">
+                    <Grid RowDefinitions="Auto, *">
+                        <Label Grid.Row="0" Text="Top 5 per tempo investito"
+                               Style="{StaticResource LabelSectionTitle}" Margin="0,0,0,15"/>
+
+                        <CollectionView Grid.Row="1" x:Name="TopTimeCollectionView">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="10,8">
+                                        <VerticalStackLayout Grid.Column="0" VerticalOptions="Center">
+                                            <Label Text="{Binding Title}" FontAttributes="Bold"
+                                                   FontSize="14"
+                                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                                            <Label Text="{Binding Type}" FontSize="12" TextColor="#BBBBAA"/>
+                                        </VerticalStackLayout>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding TimeSpentMinutes, StringFormat='{0} min'}"
+                                               FontAttributes="Bold" TextColor="#777777"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</ContentPage>

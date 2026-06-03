@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyLibrary.AboutPage">
+
+    <Grid ColumnDefinitions="240, *">
+
+        <!-- ===== SIDEBAR ===== -->
+        <Border Grid.Column="0" Style="{StaticResource SidebarBorder}">
+            <Grid RowDefinitions="Auto, *, Auto" Padding="24,36,24,28">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="4" Margin="0,0,0,40">
+                    <Label Text="MY LIBRARY" FontSize="13" FontAttributes="Bold"
+                           CharacterSpacing="3"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=White}"/>
+                    <BoxView Style="{StaticResource Divider}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="4">
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Dashboard" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToDashboard"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Add Media" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToAddMedia"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Statistics" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToStats"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Profile" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToProfile"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="Settings" Style="{StaticResource NavLabelInactive}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNavigateToSettings"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Border>
+
+                    <!-- Pagina attiva: About -->
+                    <Border Style="{StaticResource NavItemBorder}">
+                        <Label Text="About" Style="{StaticResource NavLabelActive}"/>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- ===== CONTENUTO PRINCIPALE ===== -->
+        <ScrollView Grid.Column="1" Padding="40,0,40,40" HorizontalOptions="Fill">
+            <VerticalStackLayout Spacing="30">
+
+                <!-- Header -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Informazioni" FontSize="28" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                    <Label Text="Il tuo catalogo personale per tracciare film, libri, anime e molto altro."
+                           Style="{StaticResource LabelSubtitle}"/>
+                </VerticalStackLayout>
+
+                <!-- Descrizione app -->
+                <Border Style="{StaticResource Card}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Panoramica" Style="{StaticResource LabelSectionTitle}"/>
+                        <Label Text="MyLibrary è un'applicazione desktop per gestire la propria collezione di media. Progettata con attenzione alla privacy locale e al multi-utente, consente di registrare progressi, scrivere recensioni e visualizzare le proprie abitudini di intrattenimento senza dipendere da servizi cloud."
+                               LineHeight="1.5"
+                               TextColor="{AppThemeBinding Light=#555555, Dark=#CCCCCC}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Griglia pagine -->
+                <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto"
+                      ColumnSpacing="20" RowSpacing="20">
+
+                    <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="Dashboard" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Hub principale. Visualizza, cerca e filtra l'intera collezione."
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="Add Media" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Aggiungi nuovi media con voto, genere e recensione."
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="Statistics" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Analisi visiva: generi, completamento, tempo tracciato."
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="Profile" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Gestisci l'identità, visualizza obiettivi e gestisci l'account."
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="Settings" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Personalizza tipografia, tema colori e accessibilità."
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource Card}">
+                        <VerticalStackLayout>
+                            <Label Text="About" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            <Label Text="Sei qui!" FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+                <!-- Dettagli e contatti -->
+                <Grid ColumnDefinitions="*, *" ColumnSpacing="20">
+
+                    <Border Grid.Column="0" Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Dettagli progetto" Style="{StaticResource LabelSectionTitle}"/>
+
+                            <Grid ColumnDefinitions="110, *" ColumnSpacing="10">
+                                <Label Grid.Column="0" Text="Progetto:" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                                <Label Grid.Column="1" Text="MyLibrary"
+                                       TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="110, *" ColumnSpacing="10">
+                                <Label Grid.Column="0" Text="Autori:" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                                <Label Grid.Column="1" Text="Riccardo Grosa, Fabio Maruca, Yehor Verkholomchuk"
+                                       TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="110, *" ColumnSpacing="10">
+                                <Label Grid.Column="0" Text="Data:" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                                <Label Grid.Column="1" Text="30.05.2026"
+                                       TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="110, *" ColumnSpacing="10">
+                                <Label Grid.Column="0" Text="Framework:" FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#555555, Dark=#AAAAAA}"/>
+                                <Label Grid.Column="1" Text=".NET MAUI (C# / XAML)"
+                                       TextColor="{AppThemeBinding Light=#111111, Dark=#FFFFFF}"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource Card}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Contatti" Style="{StaticResource LabelSectionTitle}"/>
+
+                            <Label Text="Per supporto tecnico o domande:"
+                                   TextColor="{AppThemeBinding Light=#555555, Dark=#CCCCCC}" LineHeight="1.3"/>
+
+                            <Label Text="cde@edu.ti.ch"
+                                   TextColor="#0078D4" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Label Text="fabio@edu.ti.ch"
+                                   TextColor="#0078D4" FontAttributes="Bold" TextDecorations="Underline"/>
+                            <Label Text="grosa@edu.ti.ch"
+                                   TextColor="#0078D4" FontAttributes="Bold" TextDecorations="Underline" Margin="0,0,0,5"/>
+
+                            <Label Text="© 2026 MyLibrary"
+                                   FontSize="12" Style="{StaticResource LabelSubtitle}"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>
